@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dq8w0jg2i660k"]
+
+[node name="Playroom" type="Control" unique_id=1848644026]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=2091504216]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 478.0
+offset_right = 146.0
+offset_bottom = 501.0
+text = "PUPPY"
+
+[node name="Label2" type="Label" parent="." unique_id=1214913207]
+layout_mode = 0
+offset_left = 914.0
+offset_top = 471.0
+offset_right = 981.0
+offset_bottom = 494.0
+text = "GIGGLES"
