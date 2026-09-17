@@ -110,7 +110,7 @@ theme_override_constants/separation = 14
 
 [node name="DialogueText" type="Label" parent="DialoguePanel/Margin/Content/CenterColumn" unique_id=957347514]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 130)
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
