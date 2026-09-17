@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://scripts/playroom.gd" id="1_playroom"]
-[ext_resource type="Texture2D" path="res://assets/portraits/jonathan.png" id="2_jonathan"]
-[ext_resource type="Texture2D" path="res://assets/portraits/giggles.png" id="3_giggles"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_counter"]
 bg_color = Color(0.129412, 0.145098, 0.207843, 0.92)
@@ -37,7 +35,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_playroom")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="BackgroundColor" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,6 +43,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.184314, 0.2, 0.27451, 1)
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
 
 [node name="CardCounterPanel" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -68,7 +78,7 @@ vertical_alignment = 1
 [node name="DialoguePanel" type="PanelContainer" parent="."]
 layout_mode = 0
 anchor_left = 0.03
-anchor_top = 0.67
+anchor_top = 0.66
 anchor_right = 0.97
 anchor_bottom = 0.97
 theme_override_styles/panel = SubResource("StyleBoxFlat_dialogue")
@@ -85,63 +95,76 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="JonathanPortrait" type="TextureRect" parent="DialoguePanel/Margin/Content"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(220, 220)
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("2_jonathan")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Middle" type="VBoxContainer" parent="DialoguePanel/Margin/Content"]
+[node name="CenterColumn" type="VBoxContainer" parent="DialoguePanel/Margin/Content"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 14
 
-[node name="SpeakerLabel" type="Label" parent="DialoguePanel/Margin/Content/Middle"]
+[node name="DialogueText" type="Label" parent="DialoguePanel/Margin/Content/CenterColumn"]
 unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Giggles"
-
-[node name="DialogueText" type="RichTextLabel" parent="DialoguePanel/Margin/Content/Middle"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 120)
+custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-scroll_active = false
-bbcode_enabled = false
+theme_override_font_sizes/font_size = 24
+autowrap_mode = 3
 text = "Placeholder dialogue goes here."
+vertical_alignment = 1
 
-[node name="ButtonRow" type="HBoxContainer" parent="DialoguePanel/Margin/Content/Middle"]
+[node name="ButtonRow" type="HBoxContainer" parent="DialoguePanel/Margin/Content/CenterColumn"]
 layout_mode = 2
 theme_override_constants/separation = 12
+alignment = 1
 
-[node name="Spacer" type="Control" parent="DialoguePanel/Margin/Content/Middle/ButtonRow"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="WinButton" type="Button" parent="DialoguePanel/Margin/Content/Middle/ButtonRow"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(140, 48)
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "WIN"
-
-[node name="FightButton" type="Button" parent="DialoguePanel/Margin/Content/Middle/ButtonRow"]
+[node name="FightButton" type="Button" parent="DialoguePanel/Margin/Content/CenterColumn/ButtonRow"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 48)
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "FIGHT"
 
-[node name="GigglesPortrait" type="TextureRect" parent="DialoguePanel/Margin/Content"]
+[node name="WinButton" type="Button" parent="DialoguePanel/Margin/Content/CenterColumn/ButtonRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "WIN"
+
+[node name="ActionButton" type="Button" parent="DialoguePanel/Margin/Content/CenterColumn/ButtonRow"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(180, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "CONTINUE"
+
+[node name="RightColumn" type="VBoxContainer" parent="DialoguePanel/Margin/Content"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="SpeakerLabel" type="Label" parent="DialoguePanel/Margin/Content/RightColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Giggles"
+horizontal_alignment = 1
+
+[node name="GigglesPortrait" type="TextureRect" parent="DialoguePanel/Margin/Content/RightColumn"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(220, 220)
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("3_giggles")
 expand_mode = 1
 stretch_mode = 5
 
-[connection signal="pressed" from="DialoguePanel/Margin/Content/Middle/ButtonRow/WinButton" to="." method="_on_win_button_pressed"]
-[connection signal="pressed" from="DialoguePanel/Margin/Content/Middle/ButtonRow/FightButton" to="." method="_on_fight_button_pressed"]
+[connection signal="pressed" from="DialoguePanel/Margin/Content/CenterColumn/ButtonRow/FightButton" to="." method="_on_fight_button_pressed"]
+[connection signal="pressed" from="DialoguePanel/Margin/Content/CenterColumn/ButtonRow/WinButton" to="." method="_on_win_button_pressed"]
+[connection signal="pressed" from="DialoguePanel/Margin/Content/CenterColumn/ButtonRow/ActionButton" to="." method="_on_action_button_pressed"]
