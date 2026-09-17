@@ -1,25 +1,147 @@
-[gd_scene format=3 uid="uid://dq8w0jg2i660k"]
+[gd_scene load_steps=6 format=3]
 
-[node name="Playroom" type="Control" unique_id=1848644026]
+[ext_resource type="Script" path="res://scripts/playroom.gd" id="1_playroom"]
+[ext_resource type="Texture2D" path="res://assets/portraits/jonathan.png" id="2_jonathan"]
+[ext_resource type="Texture2D" path="res://assets/portraits/player.png" id="3_player"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_counter"]
+bg_color = Color(0.129412, 0.145098, 0.207843, 0.92)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.556863, 0.65098, 0.85098, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dialogue"]
+bg_color = Color(0.0823529, 0.0901961, 0.133333, 0.95)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.556863, 0.65098, 0.85098, 0.45)
+
+[node name="Playroom" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_playroom")
 
-[node name="Label" type="Label" parent="." unique_id=2091504216]
-layout_mode = 0
-offset_left = 95.0
-offset_top = 478.0
-offset_right = 146.0
-offset_bottom = 501.0
-text = "PUPPY"
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.184314, 0.2, 0.27451, 1)
 
-[node name="Label2" type="Label" parent="." unique_id=1214913207]
+[node name="CardCounterPanel" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 914.0
-offset_top = 471.0
-offset_right = 981.0
-offset_bottom = 494.0
-text = "GIGGLES"
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 78.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_counter")
+
+[node name="CardCounter" type="Label" parent="CardCounterPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "0/12"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DialoguePanel" type="PanelContainer" parent="."]
+layout_mode = 0
+anchor_left = 0.03
+anchor_top = 0.67
+anchor_right = 0.97
+anchor_bottom = 0.97
+theme_override_styles/panel = SubResource("StyleBoxFlat_dialogue")
+
+[node name="Margin" type="MarginContainer" parent="DialoguePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Content" type="HBoxContainer" parent="DialoguePanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="JonathanPortrait" type="TextureRect" parent="DialoguePanel/Margin/Content"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_jonathan")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Middle" type="VBoxContainer" parent="DialoguePanel/Margin/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 14
+
+[node name="SpeakerLabel" type="Label" parent="DialoguePanel/Margin/Content/Middle"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Giggles"
+
+[node name="DialogueText" type="RichTextLabel" parent="DialoguePanel/Margin/Content/Middle"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_active = false
+bbcode_enabled = false
+text = "Placeholder dialogue goes here."
+
+[node name="ButtonRow" type="HBoxContainer" parent="DialoguePanel/Margin/Content/Middle"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Spacer" type="Control" parent="DialoguePanel/Margin/Content/Middle/ButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WinButton" type="Button" parent="DialoguePanel/Margin/Content/Middle/ButtonRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "WIN"
+
+[node name="FightButton" type="Button" parent="DialoguePanel/Margin/Content/Middle/ButtonRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "FIGHT"
+
+[node name="PlayerPortrait" type="TextureRect" parent="DialoguePanel/Margin/Content"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_player")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="DialoguePanel/Margin/Content/Middle/ButtonRow/WinButton" to="." method="_on_win_button_pressed"]
+[connection signal="pressed" from="DialoguePanel/Margin/Content/Middle/ButtonRow/FightButton" to="." method="_on_fight_button_pressed"]
