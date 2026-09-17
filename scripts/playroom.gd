@@ -46,7 +46,7 @@ func refresh_card_counter() -> void:
 func setup_intro() -> void:
 	current_state = PlayroomState.INTRO
 	speaker_label.text = "Giggles"
-	dialogue_text.text = "Jonathan is chilling in the playroom. Giggles approaches.\n\nChoose WIN or FIGHT."
+	dialogue_text.text = "Jonathan is chilling in the playroom. Giggles approaches."
 	background_texture.visible = false
 	set_portraits(PORTRAIT_JONATHAN, PORTRAIT_GIGGLES)
 	show_intro_choices()
