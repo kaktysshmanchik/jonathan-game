@@ -278,7 +278,11 @@ animations = [{
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hm21v"]
 atlas = ExtResource("5_vldie")
-region = Rect2(34, 269, 397, 355)
+region = Rect2(33, 269, 397, 355)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsw2s"]
+atlas = ExtResource("5_vldie")
+region = Rect2(912, 269, 392, 354)
 
 [node name="PillowFight" type="Control" unique_id=2100821987]
 layout_mode = 3
@@ -340,32 +344,42 @@ theme_override_constants/separation = 6
 
 [node name="Heart1" type="TextureRect" parent="Fighters/HUD/PuppyHP" unique_id=1924105871]
 custom_minimum_size = Vector2(48, 48)
+custom_maximum_size = Vector2(48, 48)
 layout_mode = 2
 texture = SubResource("AtlasTexture_hm21v")
+expand_mode = 1
 stretch_mode = 5
 
-[node name="Heart2" type="TextureRect" parent="Fighters/HUD/PuppyHP" unique_id=381810760]
+[node name="Heart2" type="TextureRect" parent="Fighters/HUD/PuppyHP" unique_id=514946731]
 custom_minimum_size = Vector2(48, 48)
+custom_maximum_size = Vector2(48, 48)
 layout_mode = 2
 texture = SubResource("AtlasTexture_hm21v")
+expand_mode = 1
 stretch_mode = 5
 
-[node name="Heart3" type="TextureRect" parent="Fighters/HUD/PuppyHP" unique_id=1484071604]
+[node name="Heart3" type="TextureRect" parent="Fighters/HUD/PuppyHP" unique_id=1287519082]
 custom_minimum_size = Vector2(48, 48)
+custom_maximum_size = Vector2(48, 48)
 layout_mode = 2
 texture = SubResource("AtlasTexture_hm21v")
+expand_mode = 1
 stretch_mode = 5
 
-[node name="Heart4" type="TextureRect" parent="Fighters/HUD/PuppyHP" unique_id=2075850511]
+[node name="Heart4" type="TextureRect" parent="Fighters/HUD/PuppyHP" unique_id=240367040]
 custom_minimum_size = Vector2(48, 48)
+custom_maximum_size = Vector2(48, 48)
 layout_mode = 2
 texture = SubResource("AtlasTexture_hm21v")
+expand_mode = 1
 stretch_mode = 5
 
-[node name="Heart5" type="TextureRect" parent="Fighters/HUD/PuppyHP" unique_id=1248184714]
+[node name="Heart5" type="TextureRect" parent="Fighters/HUD/PuppyHP" unique_id=276081471]
 custom_minimum_size = Vector2(48, 48)
+custom_maximum_size = Vector2(48, 48)
 layout_mode = 2
 texture = SubResource("AtlasTexture_hm21v")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="GigglesHP" type="HBoxContainer" parent="Fighters/HUD" unique_id=510312847]
@@ -373,42 +387,47 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -1176.0
-offset_top = -24.0
-offset_right = 833.0
-offset_bottom = 331.0
+offset_left = -296.0
+offset_top = 28.0
+offset_right = -29.0
+offset_bottom = 95.0
 grow_horizontal = 0
 theme_override_constants/separation = 6
 
-[node name="Heart1" type="TextureRect" parent="Fighters/HUD/GigglesHP" unique_id=1043741178]
+[node name="Heart1" type="TextureRect" parent="Fighters/HUD/GigglesHP" unique_id=989204369]
 custom_minimum_size = Vector2(48, 48)
+custom_maximum_size = Vector2(48, 48)
 layout_mode = 2
-texture = SubResource("AtlasTexture_hm21v")
-stretch_mode = 5
+texture = SubResource("AtlasTexture_vsw2s")
+expand_mode = 1
 
-[node name="Heart2" type="TextureRect" parent="Fighters/HUD/GigglesHP" unique_id=1495589980]
+[node name="Heart2" type="TextureRect" parent="Fighters/HUD/GigglesHP" unique_id=115470368]
 custom_minimum_size = Vector2(48, 48)
+custom_maximum_size = Vector2(48, 48)
 layout_mode = 2
-texture = SubResource("AtlasTexture_hm21v")
-stretch_mode = 5
+texture = SubResource("AtlasTexture_vsw2s")
+expand_mode = 1
 
-[node name="Heart3" type="TextureRect" parent="Fighters/HUD/GigglesHP" unique_id=452830266]
+[node name="Heart3" type="TextureRect" parent="Fighters/HUD/GigglesHP" unique_id=1678329823]
 custom_minimum_size = Vector2(48, 48)
+custom_maximum_size = Vector2(48, 48)
 layout_mode = 2
-texture = SubResource("AtlasTexture_hm21v")
-stretch_mode = 5
+texture = SubResource("AtlasTexture_vsw2s")
+expand_mode = 1
 
-[node name="Heart4" type="TextureRect" parent="Fighters/HUD/GigglesHP" unique_id=542795575]
+[node name="Heart4" type="TextureRect" parent="Fighters/HUD/GigglesHP" unique_id=796307324]
 custom_minimum_size = Vector2(48, 48)
+custom_maximum_size = Vector2(48, 48)
 layout_mode = 2
-texture = SubResource("AtlasTexture_hm21v")
-stretch_mode = 5
+texture = SubResource("AtlasTexture_vsw2s")
+expand_mode = 1
 
-[node name="Heart5" type="TextureRect" parent="Fighters/HUD/GigglesHP" unique_id=1936088346]
+[node name="Heart5" type="TextureRect" parent="Fighters/HUD/GigglesHP" unique_id=235231458]
 custom_minimum_size = Vector2(48, 48)
+custom_maximum_size = Vector2(48, 48)
 layout_mode = 2
-texture = SubResource("AtlasTexture_hm21v")
-stretch_mode = 5
+texture = SubResource("AtlasTexture_vsw2s")
+expand_mode = 1
 
 [node name="CountdownOverlay" type="ColorRect" parent="." unique_id=382312593]
 unique_name_in_owner = true
