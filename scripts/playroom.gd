@@ -14,10 +14,14 @@ const PORTRAIT_GIGGLES_PILLOWFIGHT := "res://assets/portraits/giggles_pillowfigh
 const BG_MAIN := "res://assets/backgrounds/main.png"
 const BG_KISS := "res://assets/backgrounds/kiss.png"
 const BG_PILLOWFIGHT := "res://assets/backgrounds/pillowfight.png"
+const BG_KISS_BANG := "res://assets/backgrounds/kiss_bang.png"
 
 @onready var dialogue_panel: PanelContainer = %DialoguePanel
 @onready var card_counter_panel: PanelContainer = %CardCounterPanel
 @onready var outcome_continue_button: Button = %OutcomeContinueButton
+
+@onready var hit_effect: TextureRect = %HitEffect
+@onready var hit_blink_timer: Timer = %HitBlinkTimer
 
 const DIALOGUE := {
 	"start": {
@@ -216,7 +220,7 @@ const DIALOGUE := {
 
 
 var current_choices: Array = []
-var next_scene_after_outcome: String = ""
+var current_outcome: String = ""
 
 
 @onready var card_counter: Label = %CardCounter
@@ -298,9 +302,55 @@ func choose(index: int) -> void:
 
 	# Used by the final placeholder choices.
 	if choice.has("action"):
-		return
+	handle_action(choice["action"])
+	return
+
+func handle_action(action: String) -> void:
+	match action:
+		"kiss_bang":
+			show_kiss_bang()
+
+		"go_livingroom":
+			stop_hit_blink()
+
+			get_tree().change_scene_to_file(
+				"res://scenes/livingroom.tscn"
+			)
+			
+
+func show_kiss_bang() -> void:
+	set_background(BG_KISS_BANG)
+
+	dialogue_panel.visible = true
+	card_counter_panel.visible = true
+	outcome_continue_button.visible = false
+
+	set_portrait_mood("love")
+
+	dialogue_text.text = "What was that?!"
+
+	current_choices = [
+		{
+			"text": "I'd better check.",
+			"action": "go_livingroom"
+		}
+	]
+
+	show_choices()
+	start_hit_blink()
+	
+	func start_hit_blink() -> void:
+	hit_effect.visible = true
+	hit_blink_timer.start()
 
 
+func stop_hit_blink() -> void:
+	hit_blink_timer.stop()
+	hit_effect.visible = false
+
+
+func _on_hit_blink_timer_timeout() -> void:
+	hit_effect.visible = not hit_effect.visible
 func show_outcome(outcome: String) -> void:
 	match outcome:
 		"kitchen":
@@ -311,7 +361,7 @@ func show_outcome(outcome: String) -> void:
 
 
 func show_kitchen_outcome() -> void:
-	next_scene_after_outcome = "res://scenes/livingroom.tscn"
+	current_outcome = "kitchen"
 
 	set_background(BG_KISS)
 
@@ -325,7 +375,7 @@ func show_kitchen_outcome() -> void:
 
 
 func show_pillowfight_outcome() -> void:
-	next_scene_after_outcome = "res://scenes/pillowfight.tscn"
+	current_outcome = "pillowfight"
 
 	set_background(BG_PILLOWFIGHT)
 
@@ -398,7 +448,39 @@ func _on_action_button_pressed() -> void:
 
 
 func _on_outcome_continue_button_pressed() -> void:
-	if next_scene_after_outcome.is_empty():
-		return
+	outcome_continue_button.visible = false
 
-	get_tree().change_scene_to_file(next_scene_after_outcome)
+	match current_outcome:
+		"kitchen":
+			show_post_kiss_question()
+
+		"pillowfight":
+			get_tree().change_scene_to_file(
+				"res://scenes/pillowfight.tscn"
+			)
+
+
+func show_post_kiss_question() -> void:
+	stop_hit_blink()
+
+	dialogue_panel.visible = true
+	card_counter_panel.visible = true
+	outcome_continue_button.visible = false
+
+	set_background(BG_KISS)
+	set_portrait_mood("love")
+
+	dialogue_text.text = "What's on your mind, puppy?"
+
+	current_choices = [
+		{
+			"text": "Nothing new...",
+			"action": "kiss_bang"
+		}
+	]
+
+	show_choices()
+	
+
+func _on_hit_blink_timer_timeout() -> void:
+	pass # Replace with function body.

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dq8w0jg2i660k"]
 
 [ext_resource type="Script" uid="uid://d7glj1ussm0k" path="res://scripts/playroom.gd" id="1_playroom"]
+[ext_resource type="Texture2D" uid="uid://cbmns7bq5qnuw" path="res://assets/sprites/hit.png" id="2_sbksu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_counter"]
 bg_color = Color(0.08235294, 0.07450981, 0.10980392, 0.8980392)
@@ -216,7 +217,24 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_uoagm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_uoagm")
 text = "CONTINUE"
 
+[node name="HitEffect" type="TextureRect" parent="." unique_id=1645681540]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 0
+offset_left = 893.0
+offset_top = 110.0
+offset_right = 1193.0
+offset_bottom = 410.0
+mouse_filter = 2
+texture = ExtResource("2_sbksu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HitBlinkTimer" type="Timer" parent="." unique_id=565117218]
+wait_time = 0.25
+
 [connection signal="pressed" from="DialoguePanel/Margin/Content/CenterColumn/Options/FightButton" to="." method="_on_fight_button_pressed"]
 [connection signal="pressed" from="DialoguePanel/Margin/Content/CenterColumn/Options/WinButton" to="." method="_on_win_button_pressed"]
 [connection signal="pressed" from="DialoguePanel/Margin/Content/CenterColumn/Options/ActionButton" to="." method="_on_action_button_pressed"]
 [connection signal="pressed" from="OutcomeContinueButton" to="." method="_on_outcome_continue_button_pressed"]
+[connection signal="timeout" from="HitBlinkTimer" to="." method="_on_hit_blink_timer_timeout"]

@@ -81,6 +81,10 @@ var pillow_tween: Tween
 
 
 func _ready() -> void:
+	continue_button.pressed.connect(
+		_on_continue_button_pressed
+	)
+
 	puppy_full_heart = puppy_hearts[0].texture
 	giggles_full_heart = giggles_hearts[0].texture
 
@@ -102,10 +106,6 @@ func _ready() -> void:
 	fight_active = true
 
 	await fight_loop()
-	
-	continue_button.pressed.connect(
-	_on_continue_button_pressed
-)
 
 
 func _on_continue_button_pressed() -> void:
