@@ -1,0 +1,192 @@
+[gd_scene format=3 uid="uid://bxf8tvepphrww"]
+
+[ext_resource type="Script" uid="uid://swa766g203pr" path="res://scripts/pillowfight_transition.gd" id="1_bn1js"]
+[ext_resource type="Texture2D" uid="uid://cbmns7bq5qnuw" path="res://assets/sprites/hit.png" id="2_58h13"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_counter"]
+bg_color = Color(0.129412, 0.145098, 0.207843, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.556863, 0.65098, 0.85098, 0.5)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dialogue"]
+bg_color = Color(0.08235294, 0.07450981, 0.10980392, 0.8980392)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.45882353, 0.38431373, 0.49803922, 0.8980392)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="PillowFightTransition" type="Control" unique_id=752298892]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bn1js")
+
+[node name="BackgroundColor" type="ColorRect" parent="." unique_id=240601614]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.184314, 0.2, 0.27451, 1)
+
+[node name="BackgroundTexture" type="TextureRect" parent="." unique_id=1850710818]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="CardCounterPanel" type="PanelContainer" parent="." unique_id=557699402]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 78.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_counter")
+
+[node name="CardCounter" type="Label" parent="CardCounterPanel" unique_id=1805885625]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "0/12"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DialoguePanel" type="PanelContainer" parent="." unique_id=845505197]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.66
+anchor_right = 0.97
+anchor_bottom = 0.97
+theme_override_styles/panel = SubResource("StyleBoxFlat_dialogue")
+
+[node name="Margin" type="MarginContainer" parent="DialoguePanel" unique_id=1888135667]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Content" type="HBoxContainer" parent="DialoguePanel/Margin" unique_id=112595506]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="JonathanPortrait" type="TextureRect" parent="DialoguePanel/Margin/Content" unique_id=1743830709]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CenterColumn" type="VBoxContainer" parent="DialoguePanel/Margin/Content" unique_id=695927186]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 14
+
+[node name="DialogueText" type="Label" parent="DialoguePanel/Margin/Content/CenterColumn" unique_id=957347514]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
+text = "Placeholder dialogue goes here."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Options" type="VBoxContainer" parent="DialoguePanel/Margin/Content/CenterColumn" unique_id=1591120247]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="FightButton" type="Button" parent="DialoguePanel/Margin/Content/CenterColumn/Options" unique_id=780007731]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 18
+text = "FIGHT"
+alignment = 0
+autowrap_mode = 3
+
+[node name="WinButton" type="Button" parent="DialoguePanel/Margin/Content/CenterColumn/Options" unique_id=159551851]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 18
+text = "WIN"
+alignment = 0
+autowrap_mode = 3
+
+[node name="ActionButton" type="Button" parent="DialoguePanel/Margin/Content/CenterColumn/Options" unique_id=1345408300]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(180, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "CONTINUE"
+
+[node name="RightColumn" type="VBoxContainer" parent="DialoguePanel/Margin/Content" unique_id=1820750825]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="GigglesPortrait" type="TextureRect" parent="DialoguePanel/Margin/Content/RightColumn" unique_id=1620546988]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="OutcomeContinueButton" type="Button" parent="." unique_id=1161382486]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 1036.0
+offset_top = 592.0
+offset_right = 1127.0
+offset_bottom = 623.0
+text = "CONTINUE"
+
+[node name="HitEffect" type="TextureRect" parent="." unique_id=1572866577]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 0
+offset_left = 941.0
+offset_top = 135.0
+offset_right = 1241.0
+offset_bottom = 435.0
+texture = ExtResource("2_58h13")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="DialoguePanel/Margin/Content/CenterColumn/Options/FightButton" to="." method="_on_fight_button_pressed"]
+[connection signal="pressed" from="DialoguePanel/Margin/Content/CenterColumn/Options/WinButton" to="." method="_on_win_button_pressed"]
+[connection signal="pressed" from="DialoguePanel/Margin/Content/CenterColumn/Options/ActionButton" to="." method="_on_action_button_pressed"]
+[connection signal="pressed" from="OutcomeContinueButton" to="." method="_on_outcome_continue_button_pressed"]

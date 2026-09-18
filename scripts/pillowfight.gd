@@ -102,8 +102,18 @@ func _ready() -> void:
 	fight_active = true
 
 	await fight_loop()
+	
+	continue_button.pressed.connect(
+	_on_continue_button_pressed
+)
 
 
+func _on_continue_button_pressed() -> void:
+	get_tree().change_scene_to_file(
+		"res://scenes/pillowfight_transition.tscn"
+	)
+	
+	
 func run_countdown() -> void:
 	for number in range(5, 0, -1):
 		countdown_label.text = "%d\n\nPress SPACE to block" % number

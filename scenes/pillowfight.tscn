@@ -337,9 +337,7 @@ unique_name_in_owner = true
 position = Vector2(1000, 400)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_xarby")
-animation = &"smug"
-frame = 3
-frame_progress = 1.0
+animation = &"ready"
 
 [node name="HUD" type="Control" parent="Fighters" unique_id=1580943206]
 layout_mode = 1
