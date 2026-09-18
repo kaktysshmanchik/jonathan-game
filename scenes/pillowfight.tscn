@@ -5,6 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://d1yj3wdvrx5nx" path="res://assets/sprites/puppy_pillow_anim.png" id="3_vldie"]
 [ext_resource type="Texture2D" uid="uid://d1eyvuk4sqkw8" path="res://assets/sprites/giggles_pillow_anim.png" id="4_vldie"]
 [ext_resource type="Texture2D" uid="uid://boayo71me88ab" path="res://assets/sprites/hp.png" id="5_vldie"]
+[ext_resource type="Texture2D" uid="uid://c16wew0skeyj7" path="res://assets/sprites/pillow.png" id="6_sxdl2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkmn3"]
+atlas = ExtResource("5_vldie")
+region = Rect2(473, 269, 395, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcp7r"]
+atlas = ExtResource("5_vldie")
+region = Rect2(1345, 270, 391, 352)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sxdl2"]
 atlas = ExtResource("3_vldie")
@@ -85,7 +94,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qm687")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"hit",
 "speed": 5.0
 }, {
@@ -119,7 +128,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1erqs")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"smug",
 "speed": 5.0
 }, {
@@ -136,7 +145,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6qrj1")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"throw",
 "speed": 5.0
 }]
@@ -157,22 +166,6 @@ region = Rect2(638, 614, 319, 307)
 atlas = ExtResource("4_vldie")
 region = Rect2(957, 614, 319, 307)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1t5hu"]
-atlas = ExtResource("4_vldie")
-region = Rect2(0, 921, 319, 307)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rsnrw"]
-atlas = ExtResource("4_vldie")
-region = Rect2(319, 921, 319, 307)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_br76a"]
-atlas = ExtResource("4_vldie")
-region = Rect2(638, 921, 319, 307)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t4d74"]
-atlas = ExtResource("4_vldie")
-region = Rect2(957, 921, 319, 307)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_rjixs"]
 atlas = ExtResource("4_vldie")
 region = Rect2(0, 0, 319, 307)
@@ -188,6 +181,22 @@ region = Rect2(638, 0, 319, 307)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1cwi7"]
 atlas = ExtResource("4_vldie")
 region = Rect2(957, 0, 319, 307)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t5hu"]
+atlas = ExtResource("4_vldie")
+region = Rect2(0, 921, 319, 307)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsnrw"]
+atlas = ExtResource("4_vldie")
+region = Rect2(319, 921, 319, 307)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br76a"]
+atlas = ExtResource("4_vldie")
+region = Rect2(638, 921, 319, 307)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4d74"]
+atlas = ExtResource("4_vldie")
+region = Rect2(957, 921, 319, 307)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v3ssk"]
 atlas = ExtResource("4_vldie")
@@ -220,25 +229,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jltis")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"hit",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1t5hu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rsnrw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_br76a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t4d74")
-}],
-"loop": 1,
-"name": &"laugh",
 "speed": 5.0
 }, {
 "frames": [{
@@ -260,6 +252,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_1t5hu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsnrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_br76a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4d74")
+}],
+"loop": 0,
+"name": &"smug",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_v3ssk")
 }, {
 "duration": 1.0,
@@ -271,7 +280,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vdav8")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"throw",
 "speed": 5.0
 }]
@@ -292,6 +301,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3y8cm")
+puppy_empty_heart = SubResource("AtlasTexture_wkmn3")
+giggles_empty_heart = SubResource("AtlasTexture_lcp7r")
 
 [node name="Background" type="TextureRect" parent="." unique_id=359724169]
 layout_mode = 1
@@ -429,6 +440,13 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_vsw2s")
 expand_mode = 1
 
+[node name="Pillow" type="Sprite2D" parent="Fighters" unique_id=729033821]
+unique_name_in_owner = true
+visible = false
+z_index = 5
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_sxdl2")
+
 [node name="CountdownOverlay" type="ColorRect" parent="." unique_id=382312593]
 unique_name_in_owner = true
 layout_mode = 1
@@ -460,3 +478,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="." unique_id=84342631]
+visible = false
+layout_mode = 0
+offset_left = 1029.0
+offset_top = 586.0
+offset_right = 1120.0
+offset_bottom = 617.0
+text = "CONTINUE"
