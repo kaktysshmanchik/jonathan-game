@@ -216,6 +216,7 @@ const DIALOGUE := {
 
 
 var current_choices: Array = []
+var next_scene_after_outcome: String = ""
 
 
 @onready var card_counter: Label = %CardCounter
@@ -242,16 +243,6 @@ func _ready() -> void:
 
 	show_dialogue("start")
 
-func show_fullscreen_outcome(background_path: String) -> void:
-	set_background(background_path)
-
-	dialogue_panel.visible = false
-	card_counter_panel.visible = false
-	outcome_continue_button.visible = false
-
-	await get_tree().create_timer(3.0).timeout
-
-	outcome_continue_button.visible = true
 
 func refresh_card_counter() -> void:
 	card_counter.text = "%d/%d" % [GameState.cards_found.size(), TOTAL_CARDS]
@@ -320,6 +311,8 @@ func show_outcome(outcome: String) -> void:
 
 
 func show_kitchen_outcome() -> void:
+	next_scene_after_outcome = "res://scenes/livingroom.tscn"
+
 	set_background(BG_KISS)
 
 	dialogue_panel.visible = false
@@ -332,6 +325,8 @@ func show_kitchen_outcome() -> void:
 
 
 func show_pillowfight_outcome() -> void:
+	next_scene_after_outcome = "res://scenes/pillowfight.tscn"
+
 	set_background(BG_PILLOWFIGHT)
 
 	dialogue_panel.visible = false
@@ -403,4 +398,7 @@ func _on_action_button_pressed() -> void:
 
 
 func _on_outcome_continue_button_pressed() -> void:
-	pass # Replace with function body.
+	if next_scene_after_outcome.is_empty():
+		return
+
+	get_tree().change_scene_to_file(next_scene_after_outcome)
