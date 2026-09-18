@@ -3,28 +3,55 @@
 [ext_resource type="Script" uid="uid://d7glj1ussm0k" path="res://scripts/playroom.gd" id="1_playroom"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_counter"]
-bg_color = Color(0.129412, 0.145098, 0.207843, 0.92)
+bg_color = Color(0.08235294, 0.07450981, 0.10980392, 0.8980392)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.556863, 0.65098, 0.85098, 0.5)
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
+border_color = Color(0.45882353, 0.38431373, 0.49803922, 0.8980392)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dialogue"]
-bg_color = Color(0.0823529, 0.0901961, 0.133333, 0.95)
+bg_color = Color(0.08235294, 0.07450981, 0.10980392, 0.8980392)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.556863, 0.65098, 0.85098, 0.45)
-corner_radius_top_left = 22
-corner_radius_top_right = 22
-corner_radius_bottom_right = 22
-corner_radius_bottom_left = 22
+border_color = Color(0.45882353, 0.38431373, 0.49803922, 0.8980392)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qufnt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gqwt"]
+bg_color = Color(0.2901961, 0.20392157, 0.3254902, 0.8627451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sbksu"]
+bg_color = Color(0.22352941, 0.16862746, 0.25882354, 0.85490197)
+border_width_left = 3
+border_color = Color(0.47947073, 0.32276204, 0.10662719, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uoagm"]
+bg_color = Color(0.2901961, 0.20392157, 0.3254902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9411765, 0.70980394, 0.42352942, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [node name="Playroom" type="Control" unique_id=752298892]
 layout_mode = 3
@@ -71,7 +98,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_counter")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 52)
 layout_mode = 2
-theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(1, 0.9411765, 0.8235294, 1)
+theme_override_font_sizes/font_size = 22
 text = "0/12"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -114,7 +142,7 @@ theme_override_constants/separation = 14
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 0.5294118, 1, 1)
+theme_override_colors/font_color = Color(0.9411765, 0.41568628, 0.84313726, 1)
 theme_override_font_sizes/font_size = 20
 text = "Placeholder dialogue goes here."
 vertical_alignment = 1
@@ -129,7 +157,13 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.93333334, 0.90588236, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(1, 0.95686275, 0.9098039, 1)
 theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_qufnt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1gqwt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sbksu")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sbksu")
 text = "FIGHT"
 alignment = 0
 autowrap_mode = 3
@@ -139,6 +173,10 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_qufnt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1gqwt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sbksu")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sbksu")
 text = "WIN"
 alignment = 0
 autowrap_mode = 3
@@ -172,6 +210,10 @@ offset_left = 1036.0
 offset_top = 592.0
 offset_right = 1127.0
 offset_bottom = 623.0
+theme_override_colors/font_color = Color(1, 0.9411765, 0.8235294, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_uoagm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uoagm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uoagm")
 text = "CONTINUE"
 
 [connection signal="pressed" from="DialoguePanel/Margin/Content/CenterColumn/Options/FightButton" to="." method="_on_fight_button_pressed"]
