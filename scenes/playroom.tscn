@@ -57,6 +57,7 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="CardCounterPanel" type="PanelContainer" parent="." unique_id=557699402]
+unique_name_in_owner = true
 layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
@@ -76,6 +77,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DialoguePanel" type="PanelContainer" parent="." unique_id=845505197]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.03
@@ -110,12 +112,10 @@ theme_override_constants/separation = 14
 
 [node name="DialogueText" type="Label" parent="DialoguePanel/Margin/Content/CenterColumn" unique_id=957347514]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.5294118, 1, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 20
 text = "Placeholder dialogue goes here."
 vertical_alignment = 1
 autowrap_mode = 3
@@ -127,23 +127,21 @@ alignment = 1
 
 [node name="FightButton" type="Button" parent="DialoguePanel/Margin/Content/CenterColumn/Options" unique_id=780007731]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(140, 42)
 layout_mode = 2
-size_flags_vertical = 3
 mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 18
 text = "FIGHT"
 alignment = 0
+autowrap_mode = 3
 
 [node name="WinButton" type="Button" parent="DialoguePanel/Margin/Content/CenterColumn/Options" unique_id=159551851]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(140, 42)
 layout_mode = 2
-size_flags_vertical = 3
 mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 18
 text = "WIN"
 alignment = 0
+autowrap_mode = 3
 
 [node name="ActionButton" type="Button" parent="DialoguePanel/Margin/Content/CenterColumn/Options" unique_id=1345408300]
 unique_name_in_owner = true
@@ -166,6 +164,17 @@ size_flags_vertical = 4
 expand_mode = 1
 stretch_mode = 5
 
+[node name="OutcomeContinueButton" type="Button" parent="." unique_id=1161382486]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 1036.0
+offset_top = 592.0
+offset_right = 1127.0
+offset_bottom = 623.0
+text = "CONTINUE"
+
 [connection signal="pressed" from="DialoguePanel/Margin/Content/CenterColumn/Options/FightButton" to="." method="_on_fight_button_pressed"]
 [connection signal="pressed" from="DialoguePanel/Margin/Content/CenterColumn/Options/WinButton" to="." method="_on_win_button_pressed"]
 [connection signal="pressed" from="DialoguePanel/Margin/Content/CenterColumn/Options/ActionButton" to="." method="_on_action_button_pressed"]
+[connection signal="pressed" from="OutcomeContinueButton" to="." method="_on_outcome_continue_button_pressed"]

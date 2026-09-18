@@ -14,6 +14,9 @@ const PORTRAIT_GIGGLES_PILLOWFIGHT := "res://assets/portraits/giggles_pillowfigh
 const BG_KISS := "res://assets/backgrounds/kiss.png"
 const BG_PILLOWFIGHT := "res://assets/backgrounds/pillowfight.png"
 
+@onready var dialogue_panel: PanelContainer = %DialoguePanel
+@onready var card_counter_panel: PanelContainer = %CardCounterPanel
+@onready var outcome_continue_button: Button = %OutcomeContinueButton
 
 const DIALOGUE := {
 	"start": {
@@ -234,6 +237,7 @@ func _ready() -> void:
 	refresh_card_counter()
 
 	action_button.visible = false
+	outcome_continue_button.visible = false
 
 	show_dialogue("start")
 
@@ -243,6 +247,10 @@ func refresh_card_counter() -> void:
 
 
 func show_dialogue(dialogue_id: String) -> void:
+	dialogue_panel.visible = true
+	card_counter_panel.visible = true
+	outcome_continue_button.visible = false
+
 	var dialogue: Dictionary = DIALOGUE[dialogue_id]
 
 	dialogue_text.text = dialogue["text"]
@@ -301,10 +309,15 @@ func show_outcome(outcome: String) -> void:
 
 
 func show_kitchen_outcome() -> void:
-	dialogue_text.text = ""
-
 	set_background(BG_KISS)
-	set_portrait_mood("love")
+
+	dialogue_panel.visible = false
+	card_counter_panel.visible = false
+	outcome_continue_button.visible = false
+
+	await get_tree().create_timer(3.0).timeout
+
+	outcome_continue_button.visible = true
 
 	current_choices = [
 		{
@@ -393,3 +406,7 @@ func _on_win_button_pressed() -> void:
 # Still connected in your scene, but the button stays hidden.
 func _on_action_button_pressed() -> void:
 	pass
+
+
+func _on_outcome_continue_button_pressed() -> void:
+	pass # Replace with function body.
