@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8b8xkopviam"
-path="res://.godot/imported/room.png-2fad76c7fdf62dddd71fff7cd730e48f.ctex"
+uid="uid://ddapk1u7lwewt"
+path="res://.godot/imported/pillowfight_room.png-8648b65f8d1f32e73a94363a42829f36.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/room.png"
-dest_files=["res://.godot/imported/room.png-2fad76c7fdf62dddd71fff7cd730e48f.ctex"]
+source_file="res://assets/backgrounds/pillowfight_room.png"
+dest_files=["res://.godot/imported/pillowfight_room.png-8648b65f8d1f32e73a94363a42829f36.ctex"]
 
 [params]
 
