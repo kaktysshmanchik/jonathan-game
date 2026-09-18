@@ -219,6 +219,7 @@ text = "CONTINUE"
 
 [node name="HitEffect" type="TextureRect" parent="." unique_id=1645681540]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 0
 offset_left = 893.0
@@ -231,6 +232,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="HitBlinkTimer" type="Timer" parent="." unique_id=565117218]
+unique_name_in_owner = true
 wait_time = 0.25
 
 [connection signal="pressed" from="DialoguePanel/Margin/Content/CenterColumn/Options/FightButton" to="." method="_on_fight_button_pressed"]

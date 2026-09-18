@@ -302,8 +302,8 @@ func choose(index: int) -> void:
 
 	# Used by the final placeholder choices.
 	if choice.has("action"):
-	handle_action(choice["action"])
-	return
+		handle_action(choice["action"])
+		return
 
 func handle_action(action: String) -> void:
 	match action:
@@ -339,7 +339,7 @@ func show_kiss_bang() -> void:
 	show_choices()
 	start_hit_blink()
 	
-	func start_hit_blink() -> void:
+func start_hit_blink() -> void:
 	hit_effect.visible = true
 	hit_blink_timer.start()
 
@@ -481,6 +481,3 @@ func show_post_kiss_question() -> void:
 
 	show_choices()
 	
-
-func _on_hit_blink_timer_timeout() -> void:
-	pass # Replace with function body.
