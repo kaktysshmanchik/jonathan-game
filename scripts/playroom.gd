@@ -11,6 +11,7 @@ const PORTRAIT_GIGGLES_LOVE := "res://assets/portraits/giggles_love.png"
 const PORTRAIT_JONATHAN_PILLOWFIGHT := "res://assets/portraits/jonathan_pillowfight.png"
 const PORTRAIT_GIGGLES_PILLOWFIGHT := "res://assets/portraits/giggles_pillowfight.png"
 
+const BG_MAIN := "res://assets/backgrounds/main.png"
 const BG_KISS := "res://assets/backgrounds/kiss.png"
 const BG_PILLOWFIGHT := "res://assets/backgrounds/pillowfight.png"
 
@@ -241,6 +242,16 @@ func _ready() -> void:
 
 	show_dialogue("start")
 
+func show_fullscreen_outcome(background_path: String) -> void:
+	set_background(background_path)
+
+	dialogue_panel.visible = false
+	card_counter_panel.visible = false
+	outcome_continue_button.visible = false
+
+	await get_tree().create_timer(3.0).timeout
+
+	outcome_continue_button.visible = true
 
 func refresh_card_counter() -> void:
 	card_counter.text = "%d/%d" % [GameState.cards_found.size(), TOTAL_CARDS]
@@ -255,7 +266,7 @@ func show_dialogue(dialogue_id: String) -> void:
 
 	dialogue_text.text = dialogue["text"]
 
-	background_texture.visible = false
+	set_background(BG_MAIN)
 
 	set_portrait_mood(dialogue.get("mood", "normal"))
 
@@ -319,34 +330,17 @@ func show_kitchen_outcome() -> void:
 
 	outcome_continue_button.visible = true
 
-	current_choices = [
-		{
-			"text": "Continue",
-			"action": "nothing"
-		}
-	]
-
-	show_choices()
-
 
 func show_pillowfight_outcome() -> void:
-	dialogue_text.text = ""
-
 	set_background(BG_PILLOWFIGHT)
-	set_portrait_mood("pillowfight")
 
-	current_choices = [
-		{
-			"text": "Win",
-			"action": "nothing"
-		},
-		{
-			"text": "Lose",
-			"action": "nothing"
-		}
-	]
+	dialogue_panel.visible = false
+	card_counter_panel.visible = false
+	outcome_continue_button.visible = false
 
-	show_choices()
+	await get_tree().create_timer(3.0).timeout
+
+	outcome_continue_button.visible = true
 
 
 func set_portrait_mood(mood: String) -> void:
