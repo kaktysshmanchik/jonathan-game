@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clxma01272bf6"
-path="res://.godot/imported/puppy_pillow.png-fdea3a66bc33fc528f5d2aa378e2d0c9.ctex"
+uid="uid://028x2m2ufn04"
+path="res://.godot/imported/kiss_bang.png-976abd2a1f839e883e53cae251cdd64e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/puppy_pillow.png"
-dest_files=["res://.godot/imported/puppy_pillow.png-fdea3a66bc33fc528f5d2aa378e2d0c9.ctex"]
+source_file="res://assets/backgrounds/kiss_bang.png"
+dest_files=["res://.godot/imported/kiss_bang.png-976abd2a1f839e883e53cae251cdd64e.ctex"]
 
 [params]
 

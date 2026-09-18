@@ -17,19 +17,19 @@ region = Rect2(1345, 270, 391, 352)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sxdl2"]
 atlas = ExtResource("3_vldie")
-region = Rect2(196, 512, 309, 256)
+region = Rect2(148, 507, 331, 242)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2bsux"]
 atlas = ExtResource("3_vldie")
-region = Rect2(505, 512, 309, 256)
+region = Rect2(479, 507, 331, 242)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_je1wl"]
 atlas = ExtResource("3_vldie")
-region = Rect2(814, 512, 309, 256)
+region = Rect2(810, 507, 331, 242)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qm687"]
 atlas = ExtResource("3_vldie")
-region = Rect2(1123, 512, 309, 256)
+region = Rect2(1141, 507, 331, 242)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eqns7"]
 atlas = ExtResource("3_vldie")
@@ -125,7 +125,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lybvl")
 }, {
-"duration": 1.0,
+"duration": 1.6,
 "texture": SubResource("AtlasTexture_1erqs")
 }],
 "loop": 0,
@@ -152,19 +152,19 @@ animations = [{
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xarby"]
 atlas = ExtResource("4_vldie")
-region = Rect2(0, 614, 319, 307)
+region = Rect2(2, 632, 313, 294)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0d5ym"]
 atlas = ExtResource("4_vldie")
-region = Rect2(319, 614, 319, 307)
+region = Rect2(315, 632, 313, 294)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_un222"]
 atlas = ExtResource("4_vldie")
-region = Rect2(638, 614, 319, 307)
+region = Rect2(628, 632, 313, 294)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jltis"]
 atlas = ExtResource("4_vldie")
-region = Rect2(957, 614, 319, 307)
+region = Rect2(941, 632, 313, 294)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rjixs"]
 atlas = ExtResource("4_vldie")
@@ -184,35 +184,35 @@ region = Rect2(957, 0, 319, 307)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1t5hu"]
 atlas = ExtResource("4_vldie")
-region = Rect2(0, 921, 319, 307)
+region = Rect2(2, 930, 313, 294)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsnrw"]
 atlas = ExtResource("4_vldie")
-region = Rect2(319, 921, 319, 307)
+region = Rect2(315, 930, 313, 294)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_br76a"]
 atlas = ExtResource("4_vldie")
-region = Rect2(638, 921, 319, 307)
+region = Rect2(628, 930, 313, 294)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4d74"]
 atlas = ExtResource("4_vldie")
-region = Rect2(957, 921, 319, 307)
+region = Rect2(941, 930, 313, 294)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v3ssk"]
 atlas = ExtResource("4_vldie")
-region = Rect2(0, 307, 319, 307)
+region = Rect2(2, 323, 313, 305)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gsf26"]
 atlas = ExtResource("4_vldie")
-region = Rect2(319, 307, 319, 307)
+region = Rect2(315, 323, 313, 305)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qwlfc"]
 atlas = ExtResource("4_vldie")
-region = Rect2(638, 307, 319, 307)
+region = Rect2(628, 323, 313, 305)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vdav8"]
 atlas = ExtResource("4_vldie")
-region = Rect2(957, 307, 319, 307)
+region = Rect2(941, 323, 313, 305)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xarby"]
 animations = [{
@@ -260,7 +260,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_br76a")
 }, {
-"duration": 1.0,
+"duration": 1.6,
 "texture": SubResource("AtlasTexture_t4d74")
 }],
 "loop": 0,
@@ -328,14 +328,18 @@ grow_vertical = 2
 unique_name_in_owner = true
 position = Vector2(200, 400)
 sprite_frames = SubResource("SpriteFrames_vldie")
-animation = &"ready"
+animation = &"smug"
+frame = 3
+frame_progress = 1.0
 
 [node name="Giggles" type="AnimatedSprite2D" parent="Fighters" unique_id=271933747]
 unique_name_in_owner = true
 position = Vector2(1000, 400)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_xarby")
-animation = &"ready"
+animation = &"smug"
+frame = 3
+frame_progress = 1.0
 
 [node name="HUD" type="Control" parent="Fighters" unique_id=1580943206]
 layout_mode = 1
@@ -480,6 +484,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ContinueButton" type="Button" parent="." unique_id=84342631]
+unique_name_in_owner = true
 visible = false
 layout_mode = 0
 offset_left = 1029.0

@@ -14,7 +14,7 @@ const PILLOW_RETURN_TIME := 0.95
 
 # Player must wait until the pillow is at least this far through
 # its flight before SPACE successfully blocks it.
-const BLOCK_WINDOW_START := 0.55
+const BLOCK_WINDOW_START := 0.80
 
 # Successful block does not guarantee damage.
 const RETURN_HIT_CHANCE := 0.40
@@ -276,8 +276,8 @@ func _pillow_hit_puppy() -> void:
 
 	puppy.play("hit")
 
-	# Giggles' "laugh" is her smug/victory reaction.
-	giggles.play("laugh")
+	# Giggles' "smug" is her smug/victory reaction.
+	giggles.play("smug")
 
 	if puppy_hp <= 0:
 		await get_tree().create_timer(HIT_REACTION_TIME).timeout

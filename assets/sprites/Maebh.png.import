@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmwccg3kqkib2"
-path="res://.godot/imported/giggles_pillow.png-db0ab827ca7f497ab2c2741cb6d56a42.ctex"
+uid="uid://bbfvmflwqfxam"
+path="res://.godot/imported/Maebh.png-67ac9cce39e9f3370a9d659fc184e66e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/giggles_pillow.png"
-dest_files=["res://.godot/imported/giggles_pillow.png-db0ab827ca7f497ab2c2741cb6d56a42.ctex"]
+source_file="res://assets/sprites/Maebh.png"
+dest_files=["res://.godot/imported/Maebh.png-67ac9cce39e9f3370a9d659fc184e66e.ctex"]
 
 [params]
 
